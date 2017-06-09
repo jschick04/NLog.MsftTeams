@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NLog.MsftTeams.Models;
 
 namespace NLog.MsftTeams {
@@ -23,7 +24,19 @@ namespace NLog.MsftTeams {
     }
 
     public void WithMessage(string message) {
-      _payload.Text = message;
+      var section = new Sections { Text = message };
+      _payload.Sections.Add(section);
+    }
+
+    public void WithServerName(string serverName, string type, string message) {
+      var facts = new List<Facts> {
+        new Facts { Name = "Server:", Value = serverName },
+        new Facts { Name = "Type:", Value = type }
+      };
+
+      var section = new Sections { Facts = facts, Text = message };
+
+      _payload.Sections.Add(section);
     }
   }
 

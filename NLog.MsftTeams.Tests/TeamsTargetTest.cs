@@ -1,4 +1,5 @@
 ﻿using System;
+using NLog.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace NLog.MsftTeams.Tests {
@@ -7,7 +8,7 @@ namespace NLog.MsftTeams.Tests {
   public class TeamsTargetTests {
     [TestMethod]
     public void CustomSettings_ShouldBeCorrect() {
-      const string webHookUrl = "http://teams.webhook.com";
+      const string webHookUrl = "http://teams.webhook.test";
 
       var teamsTarget = new TestableTeamsTarget {
         WebHookUrl = webHookUrl

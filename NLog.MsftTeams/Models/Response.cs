@@ -7,9 +7,7 @@ namespace NLog.MsftTeams.Models {
     [DataMember(Name = "error")]
     public string Error { get; set; }
 
-    public bool HasError {
-      get { return !Ok || string.IsNullOrWhiteSpace(Error); }
-    }
+    public bool HasError => !Ok || string.IsNullOrWhiteSpace(Error);
 
     [DataMember(Name = "ok")]
     public bool Ok { get; set; }

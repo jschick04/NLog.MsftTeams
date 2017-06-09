@@ -25,4 +25,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(AutomaticVersions) = postSolution
+		UpdateAssemblyVersion.Debug|Any CPU = False
+		UpdateAssemblyFileVersion.Debug|Any CPU = True
+		UpdateAssemblyInfoVersion.Debug|Any CPU = False
+		AssemblyFileVersionSettings.Debug|Any CPU = None.None.None.Increment
+	EndGlobalSection
 EndGlobal

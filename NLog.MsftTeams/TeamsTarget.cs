@@ -10,6 +10,10 @@ namespace NLog.MsftTeams {
     [RequiredParameter]
     public string WebHookUrl { get; set; }
 
+    public string ServerName { get; set; }
+
+    public string Type { get; set; }
+
     protected override void InitializeTarget() {
       if (string.IsNullOrWhiteSpace(WebHookUrl)) {
         throw new ArgumentOutOfRangeException("WebHookUrl", "Webhook URL cannot be empty.");
@@ -35,7 +39,13 @@ namespace NLog.MsftTeams {
       string message = Layout.Render(info.LogEvent);
       var teams = new TeamsMessageBuilder(WebHookUrl);
       teams.OnError(e => info.Continuation(e));
-      teams.WithMessage(message);
+
+      if (string.IsNullOrWhiteSpace(ServerName)) {
+        teams.WithMessage(message);
+      } else {
+        teams.WithServerName(ServerName, Type, message);
+      }
+
 
       teams.Send();
     }

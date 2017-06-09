@@ -35,6 +35,7 @@
       <HintPath>..\packages\NLog.4.4.10\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -45,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Field.cs" />
+    <Compile Include="Models\Facts.cs" />
     <Compile Include="Models\Payload.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Sections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamsClient.cs" />
     <Compile Include="TeamsMessageBuilder.cs" />
