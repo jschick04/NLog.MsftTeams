@@ -1,6 +1,7 @@
 ﻿using System;
 using NLog.Common;
 using NLog.Config;
+using NLog.Layouts;
 using NLog.Targets;
 
 namespace NLog.MsftTeams {
@@ -10,9 +11,9 @@ namespace NLog.MsftTeams {
     [RequiredParameter]
     public string WebHookUrl { get; set; }
 
-    public string ServerName { get; set; }
+    public SimpleLayout ServerName { get; set; }
 
-    public string Type { get; set; }
+    public SimpleLayout EventLevel { get; set; }
 
     protected override void InitializeTarget() {
       if (string.IsNullOrWhiteSpace(WebHookUrl)) {
@@ -40,12 +41,11 @@ namespace NLog.MsftTeams {
       var teams = new TeamsMessageBuilder(WebHookUrl);
       teams.OnError(e => info.Continuation(e));
 
-      if (string.IsNullOrWhiteSpace(ServerName)) {
+      if (string.IsNullOrWhiteSpace(ServerName.Render(info.LogEvent))) {
         teams.WithMessage(message);
       } else {
-        teams.WithServerName(ServerName, Type, message);
+        teams.WithServerName(ServerName.Render(info.LogEvent), EventLevel.Render(info.LogEvent), message);
       }
-
 
       teams.Send();
     }

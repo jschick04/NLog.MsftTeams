@@ -41,6 +41,20 @@ namespace NLog.MsftTeams.Tests {
 
       teamsTarget.Initialize();
     }
+
+    [TestMethod]
+    public void InitializeTarget_DefaultJson() {
+      var teamsTarget = new TestableTeamsTarget {
+        WebHookUrl = "http://teams.webhook.test"
+      };
+
+      teamsTarget.Initialize();
+
+      Logger log = LogManager.GetCurrentClassLogger();
+      log.Info("Test Message");
+
+      teamsTarget.Write(new AsyncLogEventInfo(LogEventInfo.Create(LogLevel.Info, "Test", "Test Message"), null));
+    }
   }
 
 }

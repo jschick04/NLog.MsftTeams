@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.MsftTeams", "NLog.MsftTeams\NLog.MsftTeams.csproj", "{9CDA9A30-0599-4A4B-B227-EA4A69CCBDA5}"
 EndProject
@@ -26,9 +26,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(AutomaticVersions) = postSolution
-		UpdateAssemblyVersion.Debug|Any CPU = False
-		UpdateAssemblyFileVersion.Debug|Any CPU = True
-		UpdateAssemblyInfoVersion.Debug|Any CPU = False
-		AssemblyFileVersionSettings.Debug|Any CPU = None.None.None.Increment
+		UpdateAssemblyVersion.Release|Any CPU = True
+		UpdateAssemblyFileVersion.Release|Any CPU = True
+		UpdateAssemblyInfoVersion.Release|Any CPU = False
+		AssemblyVersionSettings.Release|Any CPU = None.None.IncrementOnDemandWithReset.None
+		AssemblyFileVersionSettings.Release|Any CPU = None.None.IncrementOnDemandWithReset.None
 	EndGlobalSection
 EndGlobal
