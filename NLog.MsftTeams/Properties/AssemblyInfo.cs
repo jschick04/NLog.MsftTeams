@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NLog.MsftTeams")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("NLog webhook for Microsoft Teams")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NLog.MsftTeams")]
